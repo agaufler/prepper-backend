@@ -1,0 +1,6 @@
+flask
+stripe
+python-dotenv
+reportlab
+requests
+flask-cors
