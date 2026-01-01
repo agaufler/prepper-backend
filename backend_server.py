@@ -86,7 +86,7 @@ def create_checkout_session():
             }],
             mode='payment',
             success_url='success_url='success_url = f"https://ultimateprepperguide.org/?success=true&email={data.get('email', '')}",
-            cancel_url='https://ultimateprepperguide.org/?canceled=true, 
+            cancel_url='https://ultimateprepperguide.org/?canceled=true', 
             customer_email=data.get('email'),
             metadata={
                 'scenario': data.get('scenario'),
