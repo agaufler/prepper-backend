@@ -294,5 +294,5 @@ The Ultimate Prepper Team
 
 if __name__ == '__main__':
     print("Starting Prepper Guide Backend Server...")
-    print(f"Email configured: {EMAIL_ADDRESS}")
+    print(f"Email configured: {FROM_EMAIL}")
     app.run(debug=True, host='0.0.0.0', port=5001)
