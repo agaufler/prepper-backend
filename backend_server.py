@@ -26,11 +26,15 @@ CORS(app)  # Enable CORS for frontend
 stripe.api_key = os.getenv('STRIPE_SECRET_KEY')
 STRIPE_PUBLISHABLE_KEY = os.getenv('STRIPE_PUBLISHABLE_KEY')
 
-# Email Configuration
-SMTP_SERVER = 'smtp.gmail.com'
-SMTP_PORT = 587
-EMAIL_ADDRESS = os.getenv('GMAIL_ADDRESS')
-EMAIL_PASSWORD = os.getenv('GMAIL_APP_PASSWORD')
+# Email Configuration (SendGrid SMTP)
+
+SMTP_SERVER = os.getenv("SMTP_SERVER", "smtp.sendgrid.net")
+SMTP_PORT = int(os.getenv("SMTP_PORT", "587"))
+
+SMTP_USERNAME = os.getenv("SMTP_USERNAME", "apikey")
+SMTP_PASSWORD = os.getenv("SMTP_PASSWORD") or os.getenv("SENDGRID_API_KEY")
+
+FROM_EMAIL = os.getenv("FROM_EMAIL") or os.getenv("EMAIL_ADDRESS")
 
 # Price in cents ($5.99 = 599 cents)
 PRODUCT_PRICE = 599
