@@ -287,8 +287,8 @@ The Ultimate Prepper Team
     # Send email
     server = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
     server.starttls()
-    server.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
-    server.sendmail(EMAIL_ADDRESS, to_email, msg.as_string())
+    server.login(SMTP_USERNAME, SMTP_PASSWORD)
+    server.sendmail(FROM_EMAIL, to_email, msg.as_string())
     server.quit()
     print(f"Email sent successfully to {to_email}")
 
