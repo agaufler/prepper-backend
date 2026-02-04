@@ -236,7 +236,7 @@ def send_email_with_pdf(to_email, user_data, pdf_path):
     
     # Create message
     msg = MIMEMultipart()
-    msg['From'] = EMAIL_ADDRESS
+    msg['From'] = FROM_EMAIL
     msg['To'] = to_email
     msg['Subject'] = f'Your {scenario} Survival Guide - Ready to Download!'
     
@@ -292,7 +292,8 @@ The Ultimate Prepper Team
     server.quit()
     print(f"Email sent successfully to {to_email}")
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print("Starting Prepper Guide Backend Server...")
     print(f"Email configured: {FROM_EMAIL}")
-    app.run(debug=True, host='0.0.0.0', port=5001)
+    port = int(os.environ.get("PORT", 5001))
+    app.run(host="0.0.0.0", port=port)
